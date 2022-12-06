@@ -67,8 +67,20 @@ void testNoSavePreguntas(){
    Examen PreguntasNoSave= service.save(preguntas);
    assertNull(PreguntasNoSave);
 */
-Examen preguntas=service.save(Datos.EXAMEN);
-    assertNull(preguntas);
+//Examen preguntas=service.save(Datos.EXAMEN);
+    Examen preguntas=Datos.EXAMEN;
+    when(examenRepository.save(preguntas)).thenReturn(preguntas);
+   // Examen preguntas=Datos.EXAMEN;
+    Examen examen = service.save(preguntas);
+//when(examenRepository.save(preguntas)).thenReturn(preguntas);
+    assertNotNull(preguntas);
+    assertEquals(Examen.class,service.save(examen).getClass());
+    assertEquals("Calculo",examen.getNombre());
+    assertEquals(5L,examen.getId());
+
+    Examen examen2 =service.findExamenPorNombreConPreguntas("");
+    assertNull(examen2);
+
     //assertTrue(preguntas.getPreguntas().contains("Pregunta1"));
     //assertNull(preguntas.getPreguntas().isEmpty());
 
