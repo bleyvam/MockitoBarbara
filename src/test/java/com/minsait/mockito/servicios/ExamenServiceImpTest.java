@@ -4,6 +4,7 @@ import com.minsait.mockito.models.Examen;
 import com.minsait.mockito.repositories.ExamenRepository;
 import com.minsait.mockito.repositories.PreguntaRepository;
 import lombok.NonNull;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
@@ -30,11 +31,14 @@ class ExamenServiceImpTest {
     @Mock
     ExamenRepository saveRepository;
 */
+
     @InjectMocks
     ExamenServiceImp service;
 
     @Captor
     ArgumentCaptor<Long> captor;
+
+
 
     @Test
     void testArgumentCaptor(){
@@ -82,13 +86,6 @@ class ExamenServiceImpTest {
         //assertTrue(preguntas.getPreguntas().contains("Pregunta1"));
         //assertNull(preguntas.getPreguntas().isEmpty());
 
-
-        //Examen examen =service.findExamenPorNombreConPreguntas("");
-        //  examen.getPreguntas().isEmpty();
-        //assertNotNull(examen);
-        //assertTrue(examen.getPreguntas().remove("Historia"));
-        //assertNull(examen.getPreguntas().remove("Historia"));
-        // assertNull(examen.getPreguntas());
 
 
     }
