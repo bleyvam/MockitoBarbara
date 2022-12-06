@@ -26,10 +26,10 @@ class ExamenServiceImpTest {
 
     @Mock
     PreguntaRepository preguntaRepository;
-
+/*
     @Mock
     ExamenRepository saveRepository;
-
+*/
     @InjectMocks
     ExamenServiceImp service;
 
@@ -45,20 +45,18 @@ class ExamenServiceImpTest {
         verify(preguntaRepository).findPreguntasByExamenId(captor.capture());
         assertEquals(3L,captor.getValue());
 
-
-
     }
 
-@Test
-void testSaveExamen(){
+    @Test
+    void testSaveExamen(){
 
-    when(examenRepository.findAll()).thenReturn(Datos.EXAMENES);
-    Examen examenNull =service.findExamenPorNombreConPreguntas("");
-    assertNull(examenNull);
-    //assertNotNull(examenNull.getPreguntas());
-}
-@Test
-void testNoSavePreguntas(){
+        when(examenRepository.findAll()).thenReturn(Datos.EXAMENES);
+        Examen examenNull =service.findExamenPorNombreConPreguntas("");
+        assertNull(examenNull);
+        //assertNotNull(examenNull.getPreguntas());
+    }
+    @Test
+    void testNoSavePreguntas(){
         /*
     when(saveRepository.findAll()).thenReturn(Datos.EXAMENES);
     List<Examen> preguntas2 = new ArrayList<>();
@@ -68,32 +66,32 @@ void testNoSavePreguntas(){
    assertNull(PreguntasNoSave);
 */
 //Examen preguntas=service.save(Datos.EXAMEN);
-    Examen preguntas=Datos.EXAMEN;
-    when(examenRepository.save(preguntas)).thenReturn(preguntas);
-   // Examen preguntas=Datos.EXAMEN;
-    Examen examen = service.save(preguntas);
+        Examen preguntas=Datos.EXAMEN;
+        when(examenRepository.save(preguntas)).thenReturn(preguntas);
+        // Examen preguntas=Datos.EXAMEN;
+        Examen examen = service.save(preguntas);
 //when(examenRepository.save(preguntas)).thenReturn(preguntas);
-    assertNotNull(preguntas);
-    assertEquals(Examen.class,service.save(examen).getClass());
-    assertEquals("Calculo",examen.getNombre());
-    assertEquals(5L,examen.getId());
+        assertNotNull(preguntas);
+        assertEquals(Examen.class,service.save(examen).getClass());
+        assertEquals("Calculo",examen.getNombre());
+        assertEquals(5L,examen.getId());
 
-    Examen examen2 =service.findExamenPorNombreConPreguntas("");
-    assertNull(examen2);
+        Examen examen2 =service.findExamenPorNombreConPreguntas("");
+        assertNull(examen2);
 
-    //assertTrue(preguntas.getPreguntas().contains("Pregunta1"));
-    //assertNull(preguntas.getPreguntas().isEmpty());
-
-
-    //Examen examen =service.findExamenPorNombreConPreguntas("");
-  //  examen.getPreguntas().isEmpty();
-    //assertNotNull(examen);
-    //assertTrue(examen.getPreguntas().remove("Historia"));
-    //assertNull(examen.getPreguntas().remove("Historia"));
-   // assertNull(examen.getPreguntas());
+        //assertTrue(preguntas.getPreguntas().contains("Pregunta1"));
+        //assertNull(preguntas.getPreguntas().isEmpty());
 
 
-}
+        //Examen examen =service.findExamenPorNombreConPreguntas("");
+        //  examen.getPreguntas().isEmpty();
+        //assertNotNull(examen);
+        //assertTrue(examen.getPreguntas().remove("Historia"));
+        //assertNull(examen.getPreguntas().remove("Historia"));
+        // assertNull(examen.getPreguntas());
+
+
+    }
 
     @Test
     void testfindExamenPorNombre() {

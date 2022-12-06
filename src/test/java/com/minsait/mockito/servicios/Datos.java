@@ -11,8 +11,8 @@ public class Datos {
             new Examen(2L, "Español"),
             new Examen(3L, "Historia")
             );
-  //  static public final Examen EXAMEN=new Examen(4L,"Quimica");
-  static public final Examen EXAMEN=new Examen(5L,"Calculo");
+   static public final Examen EXAMEN=new Examen(4L,"Quimica");
+  //static public final Examen EXAMEN=new Examen(5L,"Calculo");
 
     static public final List<String> PREGUNTAS=Arrays.asList(
             "Aritmetica",
